@@ -11,3 +11,7 @@ class HomeView(TemplateView):
         context['categories'] = Category.objects.all()
         context['products'] = Product.objects.all()
         return context
+
+
+class ContactView(TemplateView):
+    template_name = 'pages/contact.html'
