@@ -1,3 +1,4 @@
+{% load static %}
 <header id="organio-header" class="organio-header-section header-style-one">
     <div class="header-top">
         <div class="container">
@@ -15,68 +16,18 @@
         <div class="container">
             <div class="organic-header-content  position-relative">
                 <div class="site-logo">
-                    <a href="project.html#"><img src="assets/img/logo/logo1.png" alt=""></a>
+                    <a href="project.html#"><img src="{% static 'assets/img/logo/logo1.png' %}" alt=""></a>
                 </div>
                 <nav class="main-navigation-area clearfix ul-li">
                     <ul class="menu-navigation left-nav">
-                        <li class="dropdown">
-                            <a href="https://html.themexriver.com/organio/!#">Home</a>
-                            <ul class="dropdown-menu clearfix">
-                                <li><a target="_blank" href="index-1.html">Home Page 1</a></li>
-                                <li><a target="_blank" href="index-2.html">Home Page 2</a></li>
-                                <li><a target="_blank" href="index-3.html">Home Page 3</a></li>
-                                <li class="dropdown">
-                                    <a target="_blank" href="index-4.html">Home Page 4</a>
-                                    <ul class="dropdown-menu clearfix">
-                                        <li><a target="_blank" href="project.html#!">Header Style One</a></li>
-                                        <li><a target="_blank" href="project.html#!">Header Style Two</a></li>
-                                        <li><a target="_blank" href="project.html#!">Header Style Three</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a target="_blank" href="about.html">About</a></li>
-                        <li class="dropdown">
-                            <a href="https://html.themexriver.com/organio/!#">Shop</a>
-                            <ul class="dropdown-menu clearfix">
-                                <li><a target="_blank" href="shop.html">Shop Page </a></li>
-                                <li><a target="_blank" href="shop-single.html">Shop Details</a></li>
-                                <li><a target="_blank" href="cart.html">Cart Page</a></li>
-                                <li><a target="_blank" href="checkout.html">Checkout</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="https://html.themexriver.com/organio/!#">Pages</a>
-                            <ul class="dropdown-menu clearfix">
-                                <li><a target="_blank" href="service.html">Services</a></li>
-                                <li><a target="_blank" href="service-single.html">Services Details</a></li>
-                                <li><a target="_blank" href="contact.html">Contact Page</a></li>
-                                <li><a target="_blank" href="404.html">404  Page</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="{% url "home" %}">Главная</a></li>
+                        <li><a href="{% url "about" %}">О нас</a></li>
+                        <li><a  href="#">Магазин</a></li>
                     </ul>
                     <ul class="menu-navigation right-nav">
-                        <li class="dropdown">
-                            <a href="https://html.themexriver.com/organio/!#">Team</a>
-                            <ul class="dropdown-menu clearfix">
-                                <li><a target="_blank" href="team.html">Team Page</a></li>									
-                                <li><a target="_blank" href="team-single.html">Team Details</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="https://html.themexriver.com/organio/!#">News</a>
-                            <ul class="dropdown-menu clearfix">
-                                <li><a target="_blank" href="blog.html">News </a></li>
-                                <li><a target="_blank" href="blog-single.html">News Details</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="https://html.themexriver.com/organio/!#">Project</a>
-                            <ul class="dropdown-menu clearfix">
-                                <li><a target="_blank" href="project.html">Project Page </a></li>
-                                <li><a target="_blank" href="project-single.html">Project Details </a></li>
-                            </ul>
-                        </li>			
+                        <li><a href="{% url "news" %}">Новости</a></li>
+                        <li><a href="#">Галерея</a> </li>
+                        <li><a href="{% url "contact" %}">Контакты</a> </li>		
                     </ul>
                 </nav>
                 <div class="header-search-btn search-btn">
