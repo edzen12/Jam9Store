@@ -6,31 +6,14 @@
             <div class="col-lg-3">
                 <div class="or-category-menu ul-li-block">
                     <ul>
-                        <li><a href="index-2.html#"><i class="flaticon-cardboard"></i> Grocery & Frozen</a></li>
-                        <li class="sub-category">
-                            <a href="shop.html"><i class="flaticon-cherry"></i> Fresh Fruits</a>
-                            <ul>
-                                <li><a href="shop.html">Food Type 1</a></li>
-                                <li><a href="shop.html">Food Type 2</a></li>
-                                <li><a href="shop.html">Food Type 3</a></li>
-                            </ul>
+                        {% for category in categories %}
+                        <li>
+                            <a href="#">
+                                <img width='50px' style='border-radius:10px' src='{{category.image.url}}'> 
+                                {{category.name}}
+                            </a>
                         </li>
-                        <li><a href="shop.html"><i class="flaticon-fish"></i> Fresh Fish</a></li>
-                        <li><a href="shop.html"><i class="flaticon-coconut"></i>Fresh Nuts</a></li>
-                        <li><a href="shop.html"><i class="flaticon-chicken-leg"></i> Fresh Meat</a></li>
-                        <li><a href="shop.html"><i class="flaticon-fruits"></i>Bread & Bakery</a></li>
-                        <li><a href="shop.html"><i class="flaticon-grocery"></i> Vegetable</a></li>
-                        <li class="sub-category">
-                            <a href="shop.html"><i class="flaticon-leaf"></i> Organic</a>
-                            <ul>
-                                <li><a href="shop.html">Food Type 1</a></li>
-                                <li><a href="shop.html">Food Type 2</a></li>
-                                <li><a href="shop.html">Food Type 3</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="shop.html"><i class="flaticon-carrot"></i> Food</a></li>
-                        <li><a href="shop.html"><i class="flaticon-orange-juice"></i> Nature</a></li>
-                        <li><a href="shop.html"><i class="flaticon-broccoli"></i> Recipies</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>

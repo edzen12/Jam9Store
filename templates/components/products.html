@@ -17,15 +17,15 @@
                         </div>
                         <div class="or-product-item-slider-wrapper">
                             <div class="or-product-item-slider">
+                                {% for prod in products %}
                                 <div class="organio-inner-item">
                                     <div class="or-product-item-2 text-center">
                                         <div class="or-product-img-btn position-relative">
                                             <div class="or-product-img">
-                                                <img src="assets/img/product/pro2.1.jpg" alt="">
+                                                <img src="{{prod.image.url}}" alt="">
                                             </div>
-                                            <div class="price">
-                                                <span class="regular-price">$10.00</span>
-                                                <span class="discount-price">$9.00</span>
+                                            <div class="price"> 
+                                                <span class="discount-price">{{prod.price}} сом</span>
                                             </div>
                                             <div class="e-commerce-btn">
                                                 <a href="index-2.html#"><i class="fal fa-shopping-cart"></i></a>
@@ -34,115 +34,11 @@
                                             </div>
                                         </div>
                                         <div class="or-product-text headline">
-                                            <h3><a href="shop-single.html">Organic Smooth Peanut Butter</a></h3>
+                                            <h3><a href="shop-single.html">{{prod.name}}</a></h3>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="organio-inner-item">
-                                    <div class="or-product-item-2 text-center">
-                                        <div class="or-product-img-btn position-relative">
-                                            <div class="or-product-img">
-                                                <img src="assets/img/product/pro2.2.jpg" alt="">
-                                            </div>
-                                            <div class="price">
-                                                <span class="regular-price">$10.00</span>
-                                                <span class="discount-price">$9.00</span>
-                                            </div>
-                                            <div class="e-commerce-btn">
-                                                <a href="index-2.html#"><i class="fal fa-shopping-cart"></i></a>
-                                                <a href="index-2.html#"><i class="fal fa-heart"></i></a>
-                                                <a href="index-2.html#"><i class="fal fa-eye"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="or-product-text headline">
-                                            <h3><a href="shop-single.html">Organic Moringa</a></h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="organio-inner-item">
-                                    <div class="or-product-item-2 text-center">
-                                        <div class="or-product-img-btn position-relative">
-                                            <div class="or-product-img">
-                                                <img src="assets/img/product/pro2.3.jpg" alt="">
-                                            </div>
-                                            <div class="price">
-                                                <span class="regular-price">$10.00</span>
-                                                <span class="discount-price">$9.00</span>
-                                            </div>
-                                            <div class="e-commerce-btn">
-                                                <a href="index-2.html#"><i class="fal fa-shopping-cart"></i></a>
-                                                <a href="index-2.html#"><i class="fal fa-heart"></i></a>
-                                                <a href="index-2.html#"><i class="fal fa-eye"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="or-product-text headline">
-                                            <h3><a href="shop-single.html">Vegan Vitamin D3</a></h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="organio-inner-item">
-                                    <div class="or-product-item-2 text-center">
-                                        <div class="or-product-img-btn position-relative">
-                                            <div class="or-product-img">
-                                                <img src="assets/img/product/pro2.1.jpg" alt="">
-                                            </div>
-                                            <div class="price">
-                                                <span class="regular-price">$10.00</span>
-                                                <span class="discount-price">$9.00</span>
-                                            </div>
-                                            <div class="e-commerce-btn">
-                                                <a href="index-2.html#"><i class="fal fa-shopping-cart"></i></a>
-                                                <a href="index-2.html#"><i class="fal fa-heart"></i></a>
-                                                <a href="index-2.html#"><i class="fal fa-eye"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="or-product-text headline">
-                                            <h3><a href="shop-single.html">Organic Smooth Peanut Butter</a></h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="organio-inner-item">
-                                    <div class="or-product-item-2 text-center">
-                                        <div class="or-product-img-btn position-relative">
-                                            <div class="or-product-img">
-                                                <img src="assets/img/product/pro2.2.jpg" alt="">
-                                            </div>
-                                            <div class="price">
-                                                <span class="regular-price">$10.00</span>
-                                                <span class="discount-price">$9.00</span>
-                                            </div>
-                                            <div class="e-commerce-btn">
-                                                <a href="index-2.html#"><i class="fal fa-shopping-cart"></i></a>
-                                                <a href="index-2.html#"><i class="fal fa-heart"></i></a>
-                                                <a href="index-2.html#"><i class="fal fa-eye"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="or-product-text headline">
-                                            <h3><a href="shop-single.html">Organic Moringa</a></h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="organio-inner-item">
-                                    <div class="or-product-item-2 text-center">
-                                        <div class="or-product-img-btn position-relative">
-                                            <div class="or-product-img">
-                                                <img src="assets/img/product/pro2.3.jpg" alt="">
-                                            </div>
-                                            <div class="price">
-                                                <span class="regular-price">$10.00</span>
-                                                <span class="discount-price">$9.00</span>
-                                            </div>
-                                            <div class="e-commerce-btn">
-                                                <a href="index-2.html#"><i class="fal fa-shopping-cart"></i></a>
-                                                <a href="index-2.html#"><i class="fal fa-heart"></i></a>
-                                                <a href="index-2.html#"><i class="fal fa-eye"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="or-product-text headline">
-                                            <h3><a href="shop-single.html">Vegan Vitamin D3</a></h3>
-                                        </div>
-                                    </div>
-                                </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>	
