@@ -1,5 +1,6 @@
 from django.views.generic import TemplateView 
 from django.shortcuts import get_object_or_404
+from django.db.models import Count, Prefetch
 from apps.product.models import Category, Product, Slider
 
 
@@ -11,6 +12,24 @@ class HomeView(TemplateView):
         context['categories'] = Category.objects.all().order_by('-id')[:10]
         context['products'] = Product.objects.all().order_by('-id')[:6]
         context['sliders'] = Slider.objects.all().order_by('-id')[:3]
+        return context
+
+
+class CategoryView(TemplateView):
+    template_name = 'pages/shop.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        categories = Category.objects.annotate(
+            products_count=Count('products')
+        ).filter(products_count__gt=0).prefetch_related(
+            Prefetch(
+                'products',
+                queryset=Product.objects.all(),
+                to_attr='all_products'
+            )
+        )
+        context['categories'] = categories
         return context
 
 
