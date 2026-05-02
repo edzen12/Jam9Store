@@ -1,5 +1,5 @@
 from django.contrib import admin
-from apps.product.models import Category, Product
+from apps.product.models import Category, Product, Slider
 
 
 @admin.register(Category)
@@ -13,3 +13,6 @@ class ProductAdmin(admin.ModelAdmin):
     list_display_links = ('name', 'sku')
     prepopulated_fields = {'slug':('name',)}
     search_fields = ('name', 'sku')
+
+
+admin.site.register(Slider)
