@@ -4,69 +4,68 @@
 
 {% include "includes/header-other.html" %}
 
-{% include "includes/breadcrumbs.html" %}
+{% include "includes/breadcrumbs.html" with page_title="Магазин" %}
 
 
 <!-- Start of Shop product section
-	============================================= -->
-	<section id="or-shop-product" class="or-shop-product-section">
-		<div class="container">
-			<div class="or-section-title headline pera-content text-center middle-align">
-				<span class="sub-title">Products</span>
-				<h2>All of our products are
-				organic & fresh.</h2>
-			</div>
-			<!-- товары -->
-			{% for category in categories %}
-			<div class="or-product-content-2">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="or-product-content-wrapper-2">
-							<div class="or-product-top-content d-flex justify-content-between align-items-end">
-								<div class="or-section-title-2 headline">
-									<h2>{{category.name}}</h2>
-								</div>
-								<div class="carousel_nav  clearfix">
-									<button type="button" class="or-pro2-left_arrow"><i class="far fa-chevron-left"></i></button>
-									<button type="button" class="or-pro2-right_arrow"><i class="far fa-chevron-right"></i></button>
-								</div>
+============================================= -->
+<section id="or-shop-product" class="or-shop-product-section">
+	<div class="container">
+		<div class="or-section-title headline pera-content text-center middle-align">
+			<span class="sub-title">Товары</span>
+			<h2>Категории и их товары</h2>
+		</div>
+		<!-- товары -->
+		{% for category in categories %}
+		<div class="or-product-content-2 mt-5">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="or-product-content-wrapper-2">
+						<div class="or-product-top-content d-flex justify-content-between align-items-end">
+							<div class="or-section-title-2 headline">
+								<h2>{{category.name}}</h2>
 							</div>
-							<div class="or-product-item-slider-wrapper">
-								<div class="or-product-item-slider">
-									{% for prod in category.all_products|slice:":3" %}
-									<div class="organio-inner-item">
-										<div class="or-product-item-2 text-center">
-											<div class="or-product-img-btn position-relative">
-												<div class="or-product-img">
-													<img src="{{prod.image.url}}" alt="">
-												</div>
-												<div class="price"> 
-													<span class="discount-price">{{prod.price}} сом</span>
-												</div>
-												<div class="e-commerce-btn">
-													<a href="index-2.html#"><i class="fal fa-shopping-cart"></i></a>
-													<a href="index-2.html#"><i class="fal fa-heart"></i></a>
-													<a href="index-2.html#"><i class="fal fa-eye"></i></a>
-												</div>
+							<div class="carousel_nav  clearfix">
+								<button type="button" class="or-pro2-left_arrow"><i class="far fa-chevron-left"></i></button>
+								<button type="button" class="or-pro2-right_arrow"><i class="far fa-chevron-right"></i></button>
+							</div>
+						</div>
+						<div class="or-product-item-slider-wrapper">
+							<div class="or-product-item-slider">
+								{% for prod in category.all_products|slice:":3" %}
+								<div class="organio-inner-item">
+									<div class="or-product-item-2 text-center">
+										<div class="or-product-img-btn position-relative">
+											<div class="or-product-img">
+												<img width='200px' src="{{prod.image.url}}" alt="">
 											</div>
-											<div class="or-product-text headline">
-												<h3><a href="shop-single.html">{{prod.name}}</a></h3>
+											<div class="price"> 
+												<span class="discount-price">{{prod.price}} сом</span>
+											</div>
+											<div class="e-commerce-btn">
+												<a href="index-2.html#"><i class="fal fa-shopping-cart"></i></a>
+												<a href="index-2.html#"><i class="fal fa-heart"></i></a>
+												<a href="index-2.html#"><i class="fal fa-eye"></i></a>
 											</div>
 										</div>
+										<div class="or-product-text headline">
+											<h3><a href="shop-single.html">{{prod.name}}</a></h3>
+										</div>
 									</div>
-									{% endfor %}
 								</div>
+								{% endfor %}
 							</div>
-						</div>	
-					</div>
+						</div>
+					</div>	
 				</div>
 			</div>
-			{% endfor %}
-			<!-- товары -->
 		</div>
-	</section>
+		{% endfor %}
+		<!-- товары -->
+	</div>
+</section>
 <!-- End of Shop product section
-	============================================= -->		
+============================================= -->		
 
 
 

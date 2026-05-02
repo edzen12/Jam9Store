@@ -1,14 +1,15 @@
+{% load static %}
 <!-- Start of Breadcrumb section
 	============================================= -->
-	<section id="or-breadcrumbs" class="or-breadcrumbs-section position-relative" data-background="assets/img/bg/bg-page-title.jpg">
+	<section id="or-breadcrumbs" class="or-breadcrumbs-section position-relative" data-background="{% static 'assets/img/bg/bg-page-title.jpg' %}">
 		<div class="background_overlay"></div>
 		<div class="container">
 			<div class="or-breadcrumbs-content text-center">
-				<div class="page-title headline"><h1>Shop</h1></div>
+				<div class="page-title headline"><h1>{{page_title}}</h1></div>
 				<div class="or-breadcrumbs-items ul-li">
 					<ul>
 						<li><a href="{% url "home" %}">Главная</a></li>
-						<li>Shop</li>
+						<li>{{page_title}}</li>
 					</ul>
 				</div>
 			</div>
