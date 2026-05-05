@@ -31,19 +31,3 @@ class CategoryView(TemplateView):
         )
         context['categories'] = categories
         return context
-
-
-class ContactView(TemplateView):
-    template_name = 'pages/contact.html'
-
-
-class NewsView(TemplateView):
-    template_name = 'pages/blog.html'
-
-
-class TeamView(TemplateView):
-    template_name = 'pages/team.html'
-
-
-class AboutView(TemplateView):
-    template_name = 'pages/about.html'
