@@ -29,14 +29,14 @@
 						</div>
 						<div class="or-blog-text headline position-relative">
 							<div class="blog-meta">
-								<a href="#"><i class="fas fa-calendar-alt"></i> October 15, 2021</a>
+								<a href="{% url "news_detail" new.slug %}"><i class="fas fa-calendar-alt"></i> {{new.created_at}}</a>
 							</div>
-							<h3><a href="#">
+							<h3><a href="{% url "news_detail" new.slug %}">
 								{{new.title}}
 							</a></h3>
 							<div class="blog-more-comment d-flex justify-content-between">
-								<a class="read-more" href="#">Читать далее<i class="far fa-chevron-right"></i></a>
-								<a class="commnet" href="#"><i class="fas fa-comment"></i>04</a>
+								<a class="read-more" href="{% url "news_detail" new.slug %}">Читать далее<i class="far fa-chevron-right"></i></a>
+								<a class="commnet" href="{% url "news_detail" new.slug %}"><i class="fas fa-comment"></i>04</a>
 							</div>
 						</div>
 					</div>

@@ -1,5 +1,13 @@
-from django.views.generic import TemplateView 
+from django.views.generic import ListView
+from apps.gallery.models import Gallery
 
 
-class GalleryView(TemplateView):
+class GalleryView(ListView):
+    model = Gallery
     template_name = 'pages/gallery.html'
+    context_object_name = 'photos'
+    paginate_by =16
+
+    def get_queryset(self):
+        return Gallery.objects.order_by('-id')
+
