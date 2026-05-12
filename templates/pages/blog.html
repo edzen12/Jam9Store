@@ -11,9 +11,9 @@
 <section id="or-blog-feed" class="or-blog-feed-section">
 	<div class="container">
 		<div class="or-section-title headline pera-content text-center middle-align">
-			<span class="sub-title">From our blog</span>
-			<h2>On a quest to bring together and closer
-			to you all things Organic.</h2>
+			<span class="sub-title">Из нашего блога</span>
+			<h2>В стремлении объединить и приблизить
+к вам все органическое</h2>
 		</div>
 		<div class="or-blog-feed-content">
 			<div class="row">
@@ -35,8 +35,14 @@
 								{{new.title}}
 							</a></h3>
 							<div class="blog-more-comment d-flex justify-content-between">
-								<a class="read-more" href="{% url "news_detail" new.slug %}">Читать далее<i class="far fa-chevron-right"></i></a>
-								<a class="commnet" href="{% url "news_detail" new.slug %}"><i class="fas fa-comment"></i>04</a>
+								<a class="read-more" href="{% url "news_detail" new.slug %}">
+									Читать далее
+									<i class="far fa-chevron-right"></i>
+								</a>
+								<a class="commnet" href="{% url "news_detail" new.slug %}">
+									<i class="fas fa-comment"></i>
+									{{new.comments_count}}
+								</a>
 							</div>
 						</div>
 					</div>
@@ -45,11 +51,19 @@
 			</div>
 			<div class="or-pagination text-center ul-li">
 				<ul>
-					<li><a class="active" href="blog.html#">1</a></li>
-					<li><a href="blog.html#">2</a></li>
-					<li><a href="blog.html#">3</a></li>
+					{% if page_obj.has_previous %}
+					<li><a class="active" href="?page=1">1</a></li>
+					<li><a href="?page={{ page_obj.previous_page_number }}">Назад</a></li>
+					{% endif %}
+					<span>
+						Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
+					</span>
+					{% if page_obj.has_next %}
+					<li><a href="?page={{ page_obj.next_page_number }}">Вперед</a></li>
+					<li><a href="?page={{ page_obj.paginator.num_pages }}">Последняя</a></li>
+					{% endif %}
 				</ul>
-			</div>
+			</div>	
 		</div>
 	</div>
 </section>
