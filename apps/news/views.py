@@ -37,6 +37,9 @@ class NewsDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['comments'] = self.object.comments.order_by('-id')
+        context['recent_news'] = News.objects.filter(
+            is_active=True
+        ).exclude(id=self.object.id).order_by('-id')[:3]
         return context
 
 
