@@ -4,7 +4,7 @@
 
 {% include "includes/header-other.html" %}
 
-{% include "includes/breadcrumbs.html" with page_title="Отдельная страница" %}
+{% include "includes/breadcrumbs.html" with page_title=news.title %}
 
 <!-- Start of Blog Details section
 ============================================= -->
@@ -24,7 +24,7 @@
 						<div class="or-blog-details-item">
 							<div class="blog-details-text headline">
 								<div class="ord-blog-meta-2  position-relative text-capitalize">
-									<a href="#"><i class="far fa-clock"></i> {{news.created_at}}</a> 
+									<a href="#"><i class="far fa-clock"></i> {{news.created_at|date:'d M H:m'}}</a> 
 								</div>
 								<article>
 								{{news.title}}	
@@ -36,48 +36,30 @@
 						</div>
 					</div>
 					<div class="or-blog-comment headline">
-						<h3>Comment (2)</h3>
+						<h3>Комментарии</h3>
 						<div class="or-blog-comment-block-wrapper">
+							{% for comment in comments %}
 							<div class="or-blog-comment-block">
-								<div class="or-blog-comment-img float-left">
-									<img src="assets/img/blog/blg-c1.jpg" alt="">
-								</div>
 								<div class="or-blog-comment-text headline pera-content position-relative">
-									<h4><a href="blog-single.html#">Riva Collins</a></h4>
-									<span>November 19, 2020 at 11:00 am </span>
-									<p>It’s no secret that the digital industry is booming. From exciting startups to need ghor 
-										global and brands, companies are reaching out.
-									</p>
-									<a class="prd-reply-btn text-center text-uppercase" href="blog-single.html#">Reply <i class="fas fa-chevron-right"></i></a>
+									<h4><a href="blog-single.html#">{{comment.name}}</a></h4>
+									<span>{{comment.created_at}}</span>
+									<p>{{comment.text}}</p>
 								</div>
 							</div>
-							<div class="or-blog-comment-block">
-								<div class="or-blog-comment-img float-left">
-									<img src="assets/img/blog/blg-c2.jpg" alt="">
-								</div>
-								<div class="or-blog-comment-text headline pera-content position-relative">
-									<h4><a href="blog-single.html#">Oliva Jonson</a></h4>
-									<span>November 19, 2020 at 11:00 am </span>
-									<p>It’s no secret that the digital industry is booming. From exciting startups to need ghor 
-										global and brands, companies are reaching out.
-									</p>
-									<a class="prd-reply-btn text-center text-uppercase" href="blog-single.html#">Reply <i class="fas fa-chevron-right"></i></a>
-								</div>
-							</div>
+							{% empty %}
+							<p>Нет комментариев</p>
+							{% endfor %}
 						</div>
-						<h3>Post A Comment</h3>
+						<h3>Оставить комментарии</h3>
 						<div class="prd-blog-comment-form">
-							<form action="blog-single.html#" method="post">
-								<div class="prd-comment-form-input">
-									<label>Your email address will not be published *</label>
+							<form method="post">
+								{% csrf_token %}
+								<div class="prd-comment-form-input"> 
 									<div class="prd-comment-input-wrap d-flex">
-										<input type="text" placeholder="Name">
-										<input type="email" placeholder="Mail">
-										<input type="text" placeholder="Mobile">
+										<input type="text" name='name' placeholder="Ваше имя" required> 
 									</div>
-									<span><input type="checkbox"> <label>Save my details in this browser for the next time I comment.</label></span>
-									<textarea placeholder="Your Comment here..."></textarea>
-									<button type="submit">Post Comment</button>
+									<textarea name='text' placeholder="Ваш комментарии..."required></textarea>
+									<button type="submit">Опубликовать</button>
 								</div>
 							</form>
 						</div>
@@ -88,9 +70,9 @@
 						<div class="or-side-bar-widget">
 							<div class="or-widget-wrap">
 								<div class="or-search-widget position-relative">
-									<form action="blog-single.html#">
-										<input type="text" placeholder="Search...  ">
-										<button><i class="far fa-search"></i></button>
+									<form action="{% url "news_search" %}" method='get'>
+										<input type="text" name='q' placeholder="Поиск...">
+										<button type='submit'><i class="far fa-search"></i></button>
 									</form>
 								</div>
 							</div> 

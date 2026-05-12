@@ -42,3 +42,24 @@ class NewsDetailView(DetailView):
 
 class AboutView(TemplateView):
     template_name = 'pages/about.html'
+
+
+class NewsSearchView(ListView):
+    model = News
+    template_name = 'pages/news-search.html'
+    context_object_name = 'news_list'
+    paginate_by = 6
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        if not query:
+            return News.objects.none()
+        return News.objects.filter(
+            title__icontains=query,
+            is_active=True
+        )
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['query'] = self.request.GET.get('q')
+        return context 
