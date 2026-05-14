@@ -48,10 +48,10 @@
                     <a href="index-2.html#"><img src="" alt=""></a>
                 </div>
                 <div class="or-header-search-innerbox d-flex">
-                    <form action="index-2.html#">
-                        <input type="text" placeholder="Serach product...">
+                    <form action="{% url "global_search" %}" method='get'>
+                        <input type="text" name='q' placeholder="Поиск...">
+                        <button type='submit'><i class="far fa-search"></i></button>
                     </form>
-                    <button><i class="far fa-search"></i></button>
                 </div>
                 <div class="or-header-login-register d-flex">
                     <div class="login-register-button">
@@ -76,12 +76,12 @@
                             <i class="fal fa-times"></i>
                         </div>
                         <div class="m-brand-logo">
-                            <a href="https://html.themexriver.com/organio/!#"><img src="assets/img/logo/logo1.png" alt=""></a>
+                            <a href="#"><img src="assets/img/logo/logo1.png" alt=""></a>
                         </div>
                         <div class="mobile-search-wrapper position-relative">
-                            <form action="index-2.html#">
-                                <input type="text" placeholder="Search Here...">
-                                <button><i class="fas fa-search"></i></button>
+                            <form action="{% url "global_search" %}" method='get'>
+                                <input type="text" name='q' placeholder="Поиск...">
+                                <button type='submit'><i class="far fa-search"></i></button>
                             </form>
                         </div>
                         <nav class="mobile-main-navigation  clearfix ul-li">

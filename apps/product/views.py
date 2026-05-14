@@ -1,7 +1,8 @@
-from django.views.generic import TemplateView 
-from django.shortcuts import get_object_or_404
+from django.views.generic import TemplateView, DetailView
+from django.db.models import Q 
 from django.db.models import Count, Prefetch
 from apps.product.models import Category, Product, Slider
+from apps.news.models import News
 
 
 class HomeView(TemplateView):
@@ -31,3 +32,42 @@ class CategoryView(TemplateView):
         )
         context['categories'] = categories
         return context
+
+
+class GlobalSearchView(TemplateView):
+    template_name = 'pages/search.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        query = self.request.GET.get('q', '').strip()
+
+        products = Product.objects.none() 
+        news_list = News.objects.none()
+
+        if query:
+            products = Product.objects.select_related(
+                'category'
+            ).filter(
+                Q(name__icontains=query) |
+                Q(sku__icontains=query) |
+                Q(description__icontains=query) |
+                Q(category__name__icontains=query)
+            )
+
+            news_list = News.objects.filter(
+                Q(title__icontains=query) |
+                Q(desc__icontains=query), is_active=True
+            ).distinct()
+        context['query'] = query
+        context['products'] = products 
+        context['news_list'] = news_list
+        return context
+
+
+class ProductDetailView(DetailView):
+    model = Product
+    template_name = 'single_pages/shop-single.html'
+    context_object_name = 'product'
+
+    queryset = Product.objects.select_related('category')
+    
