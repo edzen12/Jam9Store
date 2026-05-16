@@ -53,9 +53,9 @@
                     <a href="https://html.themexriver.com/organio/!#"><img src="assets/img/logo/logo1.png" alt=""></a>
                 </div>
                 <div class="mobile-search-wrapper position-relative">
-                    <form action="project.html#">
-                        <input type="text" placeholder="Search Here...">
-                        <button><i class="fas fa-search"></i></button>
+                    <form action="{% url "global_search" %}" method='get'>
+                        <input type="text" name='q' placeholder="Поиск...">
+                        <button type='submit'><i class="far fa-search"></i></button>
                     </form>
                 </div>
                 <nav class="mobile-main-navigation  clearfix ul-li">
@@ -76,10 +76,10 @@
 <div class="search-popup">
 		<button class="close-search style-two"><span class="fal fa-times"></span></button>
 		<button class="close-search"><span class="fa fa-arrow-up"></span></button>
-		<form method="post" action="blog.html">
+		<form  action="{% url "global_search" %}" method='get'>
 			<div class="form-group">
-				<input type="search" name="search-field" value="" placeholder="Search Here" required="">
-				<button type="submit"><i class="fa fa-search"></i></button>
+				<input type="text" name='q' placeholder="Поиск...">
+                <button type='submit'><i class="far fa-search"></i></button>
 			</div>
 		</form>
 	</div>

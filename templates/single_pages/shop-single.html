@@ -16,26 +16,9 @@
 					<div class="shop-details-img-slider-area">
 						<div class="shop-details-img-slider">
 							<div class="shop-details-img-wrap">
-								<img src="assets/img/product/h6-product3.png" alt="" data-zoomed="assets/img/product/h6-product3.png">
-							</div>
-							<div class="shop-details-img-wrap">
-								<img src="assets/img/product/h6-product4.png" alt="" data-zoomed="assets/img/product/h6-product4.png">
-							</div>
-							<div class="shop-details-img-wrap">
-								<img src="assets/img/product/h6-product1.png" alt="" data-zoomed="assets/img/product/h6-product1.png">
-							</div>
-						</div>
-						<div class="shop-details-img-thumb">
-							<div class="or-thumb-img">
-								<img src="assets/img/product/h6-product3.png" alt="">
-							</div>
-							<div class="or-thumb-img">
-								<img src="assets/img/product/h6-product4.png" alt="">
-							</div>
-							<div class="or-thumb-img">
-								<img src="assets/img/product/h6-product1.png" alt="">
-							</div>
-						</div>
+								<img src="{{product.image.url}}" alt="" data-zoomed="{{product.image.url}}">
+							</div> 
+						</div> 
 					</div>
 				</div>
 				<div class="col-lg-6">
@@ -104,38 +87,31 @@
 					<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 						<div class="review-comment-area">
 							<div class="review-buyer-box">
+								{% for rev in reviews %}
 								<div class="buyer-review-inner clearfix">
 									<div class="buyer-review-pic float-left">
-										<img src="assets/img/blog/blg-c1.jpg" alt="">
+										<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/3840px-User_icon_2.svg.png" alt="">
 									</div>
 									<div class="buyer-review-text headline">
-										<h4>James Fread</h4>
-										<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. onsequat.Malorum” (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular </span>
+										<h4>{{rev.name}}</h4>
+										<span>{{rev.text}}</span>
 										<div class="buyer-review-date position-relative d-inline-block">
-											19 Oct 2021
+											{{rev.created_at|date:'Y d M время: H:m'}}
 										</div>
 									</div>
 								</div>
-								<div class="buyer-review-inner clearfix">
-									<div class="buyer-review-pic float-left">
-										<img src="assets/img/blog/blg-c2.jpg" alt="">
-									</div>
-									<div class="buyer-review-text headline">
-										<h4>James Fread</h4>
-										<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. onsequat.Malorum” (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular </span>
-										<div class="buyer-review-date position-relative d-inline-block">
-											19 Oct 2021
-										</div>
-									</div>
-								</div>
+								{% empty %}
+								<h3 class='text-center'>Отзывов пока нет</h3>
+								{% endfor %}
 							</div>
 							<div class="buyer-review-comment-box headline">
 								<h4 class="float-left">Добавить отзыв:</h4> 
-								<form id="buyer-review" action="shop-single.html#">
-									<textarea placeholder="Write Your Review"></textarea>
-									<input type="text" name="name" placeholder="Your Name...">
-									<input type="email" name="email" placeholder="Your Email...">
-									<button type="submit">Submit</button>
+								<form id="buyer-review" method='post'>
+									{% csrf_token %}
+									<textarea name="text" placeholder="Напишите свой отзыв"></textarea>
+									<input type="text" name="name" placeholder="Ваше имя...">
+									<input type="email" name="email" placeholder="Ваше E-mail...">
+									<button type="submit">Отправить</button>
 								</form>
 							</div>
 						</div>

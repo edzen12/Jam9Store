@@ -42,6 +42,25 @@ class Product(models.Model):
         verbose_name_plural = 'Товары'
 
 
+class ProductReview(models.Model):
+    product = models.ForeignKey(
+        Product, on_delete=models.CASCADE,
+        related_name='reviews'
+    )
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.name} - {self.product.name}"
+    
+    class Meta:
+        ordering = ['-id']
+        verbose_name = 'отзыв на товар'
+        verbose_name_plural = "Отзывы на товары"
+
+
 class Slider(models.Model):
     title = models.CharField(max_length=100, verbose_name="Текст заговолок")
     desc = models.TextField(verbose_name="Текст описание")

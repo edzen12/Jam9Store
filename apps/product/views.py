@@ -1,7 +1,8 @@
 from django.views.generic import TemplateView, DetailView
 from django.db.models import Q 
 from django.db.models import Count, Prefetch
-from apps.product.models import Category, Product, Slider
+from django.shortcuts import redirect
+from apps.product.models import Category, Product, Slider, ProductReview
 from apps.news.models import News
 
 
@@ -70,4 +71,23 @@ class ProductDetailView(DetailView):
     context_object_name = 'product'
 
     queryset = Product.objects.select_related('category')
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        text = request.POST.get('text')
+        if name and email and text:
+            ProductReview.objects.create(
+                product=self.object,
+                name=name,
+                email=email,
+                text=text,
+            )
+        return redirect('product_detail', slug=self.object.slug)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['reviews'] = self.object.reviews.all()
+        return context 
     
