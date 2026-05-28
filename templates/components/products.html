@@ -28,7 +28,9 @@
                                                 <span class="discount-price">{{prod.price}} сом</span>
                                             </div>
                                             <div class="e-commerce-btn">
-                                                <a href="index-2.html#"><i class="fal fa-shopping-cart"></i></a>
+                                                <a href="{% url "add_to_cart" prod.id %}">
+                                                    <i class="fal fa-shopping-cart"></i>
+                                                </a>
                                                 <a href="index-2.html#"><i class="fal fa-heart"></i></a>
                                                 <a href="index-2.html#"><i class="fal fa-eye"></i></a>
                                             </div>

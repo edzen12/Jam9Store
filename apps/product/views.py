@@ -1,9 +1,45 @@
+from django.views import View
 from django.views.generic import TemplateView, DetailView
+from django.shortcuts import get_object_or_404, redirect
 from django.db.models import Q 
 from django.db.models import Count, Prefetch
 from django.shortcuts import redirect
 from apps.product.models import Category, Product, Slider, ProductReview
 from apps.news.models import News
+
+
+class AddToCartView(View):
+    def get(self, request, product_id):
+        product = get_object_or_404(Product, id=product_id)
+        cart = request.session.get('cart', {})
+        product_id = str(product.id)
+        if product_id in cart:
+            cart[product_id]['quantity'] += 1
+        else:
+            cart[product_id] = {
+                'id': product.id,
+                'name': product.name,
+                'price': float(product.price),
+                'image': product.image.url if product.image else '',
+                'quantity': 1,
+                'slug': product.slug,
+            }
+        request.session['cart'] = cart 
+        return redirect(request.META.get('HTTP_REFERER'))
+    
+
+class RemoveFromCartView(View):
+    def get(self, request, product_id):
+        cart = request.session.get('cart', {})
+        product_id = str(product_id)
+        if product_id in cart:
+            del cart[product_id]
+        request.session['cart'] = cart 
+        return redirect(request.META.get('HTTP_REFERER'))
+    
+
+class CartView(TemplateView):
+    template_name = 'pages/cart.html'
 
 
 class HomeView(TemplateView):
