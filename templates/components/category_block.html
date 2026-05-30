@@ -7,118 +7,22 @@
         </div>
         <div class="or-category-content-2 position-relative">
             <div class="category-slider-2">
+                {% for category in categories %}
                 <div class="organio-inner-item">
                     <div class="or-category-innerbox-2 text-center">
                         <div class="or-category-img-shape position-relative">
                             <div class="or-category-img position-relative">
-                                <img src="assets/img/category/cat1.jpg" alt="">
-                                <a href="shop-single.html"><i class="fal fa-plus"></i></a>
+                                <img src="{{category.image.url}}" alt="">
+                                <a href="#"><i class="fal fa-plus"></i></a>
                             </div>
                         </div>
                         <div class="or-category-text headline">
-                            <h3><a href="shop-single.html">Fresh Vegetables</a></h3>
+                            <h3><a href="#">{{category.name}}</a></h3>
                             <span>(30 Items)</span>
                         </div>
                     </div>
                 </div>
-                <div class="organio-inner-item">
-                    <div class="or-category-innerbox-2 text-center">
-                        <div class="or-category-img-shape position-relative">
-                            <div class="or-category-img position-relative">
-                                <img src="assets/img/category/cat2.jpg" alt="">
-                                <a href="shop-single.html"><i class="fal fa-plus"></i></a>
-                            </div>
-                        </div>
-                        <div class="or-category-text headline">
-                            <h3><a href="shop-single.html"> Agricultural items</a></h3>
-                            <span>(30 Items)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="organio-inner-item">
-                    <div class="or-category-innerbox-2 text-center">
-                        <div class="or-category-img-shape position-relative">
-                            <div class="or-category-img position-relative">
-                                <img src="assets/img/category/cat3.jpg" alt="">
-                                <a href="shop-single.html"><i class="fal fa-plus"></i></a>
-                            </div>
-                        </div>
-                        <div class="or-category-text headline">
-                            <h3><a href="shop-single.html"> Dairy items</a></h3>
-                            <span>(30 Items)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="organio-inner-item">
-                    <div class="or-category-innerbox-2 text-center">
-                        <div class="or-category-img-shape position-relative">
-                            <div class="or-category-img position-relative">
-                                <img src="assets/img/category/cat4.jpg" alt="">
-                                <a href="shop-single.html"><i class="fal fa-plus"></i></a>
-                            </div>
-                        </div>
-                        <div class="or-category-text headline">
-                            <h3><a href="shop-single.html"> Frozen items</a></h3>
-                            <span>(30 Items)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="organio-inner-item">
-                    <div class="or-category-innerbox-2 text-center">
-                        <div class="or-category-img-shape position-relative">
-                            <div class="or-category-img position-relative">
-                                <img src="assets/img/category/cat1.jpg" alt="">
-                                <a href="shop-single.html"><i class="fal fa-plus"></i></a>
-                            </div>
-                        </div>
-                        <div class="or-category-text headline">
-                            <h3><a href="shop-single.html">Fresh Vegetables</a></h3>
-                            <span>(30 Items)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="organio-inner-item">
-                    <div class="or-category-innerbox-2 text-center">
-                        <div class="or-category-img-shape position-relative">
-                            <div class="or-category-img position-relative">
-                                <img src="assets/img/category/cat2.jpg" alt="">
-                                <a href="shop-single.html"><i class="fal fa-plus"></i></a>
-                            </div>
-                        </div>
-                        <div class="or-category-text headline">
-                            <h3><a href="shop-single.html"> Agricultural items</a></h3>
-                            <span>(30 Items)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="organio-inner-item">
-                    <div class="or-category-innerbox-2 text-center">
-                        <div class="or-category-img-shape position-relative">
-                            <div class="or-category-img position-relative">
-                                <img src="assets/img/category/cat3.jpg" alt="">
-                                <a href="shop-single.html"><i class="fal fa-plus"></i></a>
-                            </div>
-                        </div>
-                        <div class="or-category-text headline">
-                            <h3><a href="shop-single.html"> Dairy items</a></h3>
-                            <span>(30 Items)</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="organio-inner-item">
-                    <div class="or-category-innerbox-2 text-center">
-                        <div class="or-category-img-shape position-relative">
-                            <div class="or-category-img position-relative">
-                                <img src="assets/img/category/cat4.jpg" alt="">
-                                <a href="shop-single.html"><i class="fal fa-plus"></i></a>
-                            </div>
-                        </div>
-                        <div class="or-category-text headline">
-                            <h3><a href="shop-single.html"> Frozen items</a></h3>
-                            <span>(30 Items)</span>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
             <div class="carousel_nav  clearfix">
                 <button type="button" class="or-cat-left_arrow"><i class="far fa-chevron-left"></i></button>

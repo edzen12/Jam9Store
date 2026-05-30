@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'apps.news',
     'apps.product',
     'apps.team',
+    'apps.testimonials',
     'apps.users',
 ]
 

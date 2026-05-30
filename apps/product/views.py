@@ -6,6 +6,7 @@ from django.db.models import Count, Prefetch
 from django.shortcuts import redirect
 from apps.product.models import Category, Product, Slider, ProductReview
 from apps.news.models import News
+from apps.testimonials.models import Review
 
 
 class AddToCartView(View):
@@ -49,6 +50,8 @@ class HomeView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['categories'] = Category.objects.all().order_by('-id')[:10]
         context['products'] = Product.objects.all().order_by('-id')[:6]
+        context['reviews'] = Review.objects.all().order_by('-id')[:6]
+        context['news'] = News.objects.all().order_by('-id')[:8]
         context['sliders'] = Slider.objects.all().order_by('-id')[:3]
         return context
 

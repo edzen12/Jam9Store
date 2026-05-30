@@ -8,120 +8,37 @@
         <div class="or-blog-content-2">
             <div class="or-blog-slide-wrapper">
                 <div class="or-blog-slide">
+                    {% for new in news %}
                     <div class="organio-inner-item">
                         <div class="or-blog-innerbox">
                             <div class="or-blog-img position-relative">
-                                <img src="assets/img/blog/blg1.jpg" alt="">
+                                {% if new.image %}
+                                <img src="{{new.image.url}}" alt="">
+                                {% else %}
+                                <img src="https://i.pinimg.com/736x/90/cd/f1/90cdf1ed6438f70e0a7b7a6212fe8c29.jpg">
+                                {% endif %}
                             </div>
                             <div class="or-blog-text headline position-relative">
                                 <div class="blog-meta">
-                                    <a href="index-2.html#"><i class="fas fa-calendar-alt"></i> October 15, 2021</a>
-                                    <a href="index-2.html#"><i class="fas fa-user"></i> Admin</a>
+                                    <a href="{% url "news_detail" new.slug %}">
+                                        <i class="fas fa-calendar-alt"></i> {{new.created_at}}
+                                    </a>
                                 </div>
-                                <h3><a href="blog-single.html">Our 6 of the Best Organic
-                                Chocolates to Buy</a></h3>
+                                <h3><a href="{% url "news_detail" new.slug %}">{{new.title}}</a></h3>
                                 <div class="blog-more-comment d-flex justify-content-between">
-                                    <a class="read-more" href="blog-single.html">Read more <i class="far fa-chevron-right"></i></a>
-                                    <a class="commnet" href="index-2.html#"><i class="fas fa-comment"></i>04</a>
+                                    <a class="read-more" href="{% url "news_detail" new.slug %}">
+                                        Читать далее
+                                        <i class="far fa-chevron-right"></i>
+                                    </a>
+                                    <a class="commnet" href="{% url "news_detail" new.slug %}">
+                                        <i class="fas fa-comment"></i>
+                                        {{new.comments_count}}
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="organio-inner-item">
-                        <div class="or-blog-innerbox">
-                            <div class="or-blog-img position-relative">
-                                <img src="assets/img/blog/blg2.jpg" alt="">
-                            </div>
-                            <div class="or-blog-text headline position-relative">
-                                <div class="blog-meta">
-                                    <a href="index-2.html#"><i class="fas fa-calendar-alt"></i> October 15, 2021</a>
-                                    <a href="index-2.html#"><i class="fas fa-user"></i> Admin</a>
-                                </div>
-                                <h3><a href="blog-single.html">Best guide to shopping for
-                                organic ingredients.</a></h3>
-                                <div class="blog-more-comment d-flex justify-content-between">
-                                    <a class="read-more" href="blog-single.html">Read more <i class="far fa-chevron-right"></i></a>
-                                    <a class="commnet" href="index-2.html#"><i class="fas fa-comment"></i>04</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="organio-inner-item">
-                        <div class="or-blog-innerbox">
-                            <div class="or-blog-img position-relative">
-                                <img src="assets/img/blog/blg3.jpg" alt="">
-                            </div>
-                            <div class="or-blog-text headline position-relative">
-                                <div class="blog-meta">
-                                    <a href="index-2.html#"><i class="fas fa-calendar-alt"></i> October 15, 2021</a>
-                                    <a href="index-2.html#"><i class="fas fa-user"></i> Admin</a>
-                                </div>
-                                <h3><a href="blog-single.html">Zechsal Magnesium flakes
-                                especially made</a></h3>
-                                <div class="blog-more-comment d-flex justify-content-between">
-                                    <a class="read-more" href="blog-single.html">Read more <i class="far fa-chevron-right"></i></a>
-                                    <a class="commnet" href="index-2.html#"><i class="fas fa-comment"></i>04</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="organio-inner-item">
-                        <div class="or-blog-innerbox">
-                            <div class="or-blog-img position-relative">
-                                <img src="assets/img/blog/blg1.jpg" alt="">
-                            </div>
-                            <div class="or-blog-text headline position-relative">
-                                <div class="blog-meta">
-                                    <a href="index-2.html#"><i class="fas fa-calendar-alt"></i> October 15, 2021</a>
-                                    <a href="index-2.html#"><i class="fas fa-user"></i> Admin</a>
-                                </div>
-                                <h3><a href="blog-single.html">Our 6 of the Best Organic
-                                Chocolates to Buy</a></h3>
-                                <div class="blog-more-comment d-flex justify-content-between">
-                                    <a class="read-more" href="blog-single.html">Read more <i class="far fa-chevron-right"></i></a>
-                                    <a class="commnet" href="index-2.html#"><i class="fas fa-comment"></i>04</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="organio-inner-item">
-                        <div class="or-blog-innerbox">
-                            <div class="or-blog-img position-relative">
-                                <img src="assets/img/blog/blg2.jpg" alt="">
-                            </div>
-                            <div class="or-blog-text headline position-relative">
-                                <div class="blog-meta">
-                                    <a href="index-2.html#"><i class="fas fa-calendar-alt"></i> October 15, 2021</a>
-                                    <a href="index-2.html#"><i class="fas fa-user"></i> Admin</a>
-                                </div>
-                                <h3><a href="blog-single.html">Best guide to shopping for
-                                organic ingredients.</a></h3>
-                                <div class="blog-more-comment d-flex justify-content-between">
-                                    <a class="read-more" href="blog-single.html">Read more <i class="far fa-chevron-right"></i></a>
-                                    <a class="commnet" href="index-2.html#"><i class="fas fa-comment"></i>04</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="organio-inner-item">
-                        <div class="or-blog-innerbox">
-                            <div class="or-blog-img position-relative">
-                                <img src="assets/img/blog/blg3.jpg" alt="">
-                            </div>
-                            <div class="or-blog-text headline position-relative">
-                                <div class="blog-meta">
-                                    <a href="index-2.html#"><i class="fas fa-calendar-alt"></i> October 15, 2021</a>
-                                    <a href="index-2.html#"><i class="fas fa-user"></i> Admin</a>
-                                </div>
-                                <h3><a href="blog-single.html">Zechsal Magnesium flakes
-                                especially made</a></h3>
-                                <div class="blog-more-comment d-flex justify-content-between">
-                                    <a class="read-more" href="blog-single.html">Read more <i class="far fa-chevron-right"></i></a>
-                                    <a class="commnet" href="index-2.html#"><i class="fas fa-comment"></i>04</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
